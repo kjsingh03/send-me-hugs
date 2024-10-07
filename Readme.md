@@ -41,13 +41,13 @@ Before running the project, ensure that you have the following:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/send-me-hugs.git
+git clone https://github.com/kjsingh03/aurora-hugs.git
 ```
 
 ### 2. Navigate to Project Directory
 
 ```bash
-cd send-me-hugs
+cd aurora-hugs
 ```
 
 ### 3. Client Setup
