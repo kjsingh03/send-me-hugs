@@ -1,21 +1,12 @@
-### Deployable Link
-
-https://send-me-hugs.vercel.app
-
-Server is deployed on render so kindly wait atleast a minute for server to get deployed
-
-### Github Link
-
-https://github.com/kjsingh03/send-me-hugs
-
-Your machine must have Typescript & Nodemon & other packages installed globally for this to run since this project is not containerised yet.
-
-Also, you may checkout the prototype video
-
-
 # Send Me Hugs - Crowdfunding Blockchain Project
 
 This is a crowdfunding blockchain project featuring fundraisers, a CMS system, MetaMask payment support, and additional functionalities.
+
+Also, you may checkout the project at https://send-me-hugs.vercel.app & prototype video at https://devfolio.co/projects/send-me-hugs-871c
+
+Server is deployed on render so kindly wait atleast a minute for server to get deployed
+
+Your machine must have Typescript & Nodemon & other packages installed globally for this to run since this project is not containerised yet.
 
 ## Features
 
