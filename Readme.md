@@ -1,12 +1,12 @@
 ### Deployable Link
 
-https://aurora-hugs.vercel.app
+https://send-me-hugs.vercel.app
 
 Server is deployed on render so kindly wait atleast a minute for server to get deployed
 
 ### Github Link
 
-https://github.com/kjsingh03/aurora-hugs
+https://github.com/kjsingh03/send-me-hugs
 
 Your machine must have Typescript & Nodemon & other packages installed globally for this to run since this project is not containerised yet.
 
@@ -41,13 +41,13 @@ Before running the project, ensure that you have the following:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/kjsingh03/aurora-hugs.git
+git clone https://github.com/kjsingh03/send-me-hugs.git
 ```
 
 ### 2. Navigate to Project Directory
 
 ```bash
-cd aurora-hugs
+cd send-me-hugs
 ```
 
 ### 3. Client Setup
