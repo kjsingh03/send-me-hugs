@@ -83,7 +83,7 @@ NEXT_PUBLIC_CONTRACT_ADDRESS=0x437a12a6c95916649dA8D4362Edc6E0390650603
 #### Server `.env`:
 ```plaintext
 PORT=8000
-MONGO_URL=mongodb+srv://mana:1234@cluster0.wyibj9f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGO_URL=MONGO_URL
 JWT_SECRET=sendMeHugs
 ```
 
