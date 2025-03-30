@@ -98,6 +98,7 @@ import userDP from './user.png'
 import trash2 from './trash2.png'
 import attach_file from './attach_file.png'
 import sideNav1 from './sidenav1.svg'
+import darkLogo from './darkLogo.svg'
 // import sideNav2 from './sidenav2.svg'
 // import sideNav3 from './sidenav3.svg'
 // import sideNav4 from './sidenav4.svg'
@@ -109,8 +110,9 @@ export {
     trash2,
     attach_file,
     sideNav1,
+    darkLogo,
     // sideNav2,sideNav3,sideNav4,sideNav5,
-    userDP,logo, loginBtn, homeImg, mobileHeroImg, heroImgRect, avatar1, avatar2, avatar3, avatar4, networkDesign, picon, sicon, web3icon, si1, si2, si3, support, larrow, rarrow, logo2, of1, of2, of3, ngo1, ngo2, ngo3, facebook, instagram, twitter, uarrow, darrow,
+    userDP, logo, loginBtn, homeImg, mobileHeroImg, heroImgRect, avatar1, avatar2, avatar3, avatar4, networkDesign, picon, sicon, web3icon, si1, si2, si3, support, larrow, rarrow, logo2, of1, of2, of3, ngo1, ngo2, ngo3, facebook, instagram, twitter, uarrow, darrow,
     smh1, smh2, smh3, smh4, smh5,
     smh6, smh7, smh8, smh9, child, money, mmoney, mchild, telegram, youtube, discord, privacy, aLogo, aImg, graph, pay1
     , pay2, pay3, pay4, pay5, pay6, helpImg, graph2, hav1, hav2, hav3, hav4, plant, navArrow, bd3, bdlogo, dnavarrow, aImg2, aImg3, graph3, ImgFund, FormLogo, defImg, fundLoader, edit, trash, india, uk, germany, usa, japan, fundPost1, fundPost2, fundPost3, dashAvatar, Notificationbell, reload, threeDot, defAvatar, avatarCam, dArrow2, cross, fundCoverPhoto, setting, smileLogo

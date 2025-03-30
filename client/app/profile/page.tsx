@@ -24,6 +24,7 @@ function Profile() {
     const router = useRouter();
 
     const [user, setUser] = useState<User>({ email: '', token: '' })
+    const [editable, setEditable] = useState<boolean>(false)
 
     useEffect(() => {
         if (typeof window !== undefined) {
@@ -37,12 +38,9 @@ function Profile() {
                                 Authorization: JSON.parse(userData).token
                             }
                         });
-                        console.log(res)
-
                     } catch (e: any) {
                         dispatch(setAlert({ message: e.response.data.message, type: "error" }))
                     }
-
                 })()
             }
         }
@@ -51,7 +49,9 @@ function Profile() {
     }, []);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        if (!editable) return;
         const { name, value } = e.target;
+        setUser({...user,[name]:value})
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: '' })
     };
@@ -124,24 +124,19 @@ function Profile() {
                                         <div className="grid grid-rows-2 gap-[21px]">
                                             <div className="grid md:grid-cols-2  gap-[21px]">
                                                 <div className="w-[100%] h-[64px] step-form-div flex justify-end flex-col relative">
-                                                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} id="firstName" className="step-form-input" placeholder="Adam" />
+                                                    <input type="text" name="firstName" disabled={!editable} value={user.firstName} onChange={handleChange} id="firstName" className="step-form-input bg-transparent" placeholder="Adam" />
                                                     <label htmlFor="firstName" className="step-form-label text-[12px]">First Name</label>
                                                     {errors.firstName && <p className="text-red-500 text-xs absolute -bottom-5">{errors.firstName}</p>}
                                                 </div>
                                                 <div className="w-[100%] h-[64px] step-form-div flex justify-end flex-col relative">
-                                                <input type="text" name="location" value={user.location} onChange={handleChange} id="location" className="step-form-input" placeholder="Adam" />
-                                                <label htmlFor="location" className="step-form-label text-[12px]">Location</label>
-                                                    {errors.location && <p className="text-red-500 text-xs absolute -bottom-5">{errors.location}</p>}
+                                                    <input type="text" name="lastName" disabled={!editable} value={user.lastName} onChange={handleChange} id="lastName" className="step-form-input bg-transparent" placeholder="Adam" />
+                                                    <label htmlFor="lastName" className="step-form-label text-[12px]">Last Name</label>
+                                                    {errors.lastName && <p className="text-red-500 text-xs absolute -bottom-5">{errors.lastName}</p>}
                                                 </div>
                                             </div>
                                             <div className="grid md:grid-cols-2  gap-[21px]">
                                                 <div className="w-[100%] h-[64px] step-form-div flex justify-end flex-col relative">
-                                                    <input type="text" name="lastName"  value={user.lastName} onChange={handleChange} id="lastName" className="step-form-input" placeholder="Adam" />
-                                                    <label htmlFor="lastName" className="step-form-label text-[12px]">Last Name</label>
-                                                    {errors.lastName && <p className="text-red-500 text-xs absolute -bottom-5">{errors.lastName}</p>}
-                                                </div>
-                                                <div className="w-[100%] h-[64px] step-form-div flex justify-end flex-col relative">
-                                                    <input type="email" name="email"  value={user.email} onChange={handleChange} id="email" className="step-form-input" placeholder="Email Address" />
+                                                    <input type="email" name="email" disabled={!editable} value={user.email} onChange={handleChange} id="email" className="step-form-input bg-transparent" placeholder="Email Address" />
                                                     <label htmlFor="email" className="step-form-label text-[12px]">Email Address</label>
                                                     {errors.email && <p className="text-red-500 text-xs absolute -bottom-5">{errors.email}</p>}
                                                 </div>
@@ -150,12 +145,10 @@ function Profile() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex  w-full justify-end items-center pt-5">
-                                <div className="h-9 px-2 sm:w-fit w-full py-1.5 bg-[#e4f7f4]/70 rounded-[36px] border-2 border-[#288d7c] justify-center items-center gap-1 inline-flex">
-                                    <div className="px-1 justify-start items-start gap-2.5 flex">
-                                        <div className="text-center text-[#288d7c] text-sm font-medium font-popins leading-normal">Save Changes</div>
-                                    </div>
-                                </div>
+                            <div className="flex w-full justify-end items-center pt-5">
+                                <p onClick={() => setEditable(true)} className="px-3 sm:w-fit w-full py-1.5 bg-[#e4f7f4]/70 rounded-[36px] border-2 border-[#288d7c] text-[#288d7c] text-sm font-medium font-popins">
+                                    Edit
+                                </p>
                             </div>
                         </div>
                         <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
@@ -163,21 +156,19 @@ function Profile() {
                                 <div className="text-center text-[#2c2f32] text-xl font-semibold font-inter leading-7">Wallet Address</div>
                                 <div className="self-stretch h-16 pl-3 flex-col justify-start items-start gap-11 flex">
                                     <div className="w-[100%] h-[64px] step-form-div flex justify-end flex-col relative">
-                                        <input type="text" name="walletAddress" id="walletAddress"  value={user.walletAddress} className="step-form-input" placeholder="305102d93353a9e0b7664382dd84f087858199a0" />
+                                        <input type="text" name="walletAddress" id="walletAddress" value={user.walletAddress} className="step-form-input" placeholder="305102d93353a9e0b7664382dd84f087858199a0" />
                                         <label htmlFor="walletAddress" className="step-form-label text-[12px]">Wallet Address</label>
                                         {errors.walletAddress && <p className="text-red-500 text-xs absolute -bottom-5">{errors.walletAddress}</p>}
                                     </div>
                                 </div>
                             </div>
-                            <div className="self-stretch h-9 w-full flex-col justify-end items-end gap-2.5 flex">
-                                <div className="px-2 sm:w-fit w-full cursor-pointer py-1.5 bg-[#e4f7f4]/70 rounded-[36px] border-2 border-[#288d7c] justify-center items-center gap-1 inline-flex">
-                                    <div className="px-1 justify-start items-start gap-2.5 flex">
-                                        <div className="text-center text-[#288d7c] text-sm font-medium font-popins leading-normal">Edit</div>
-                                    </div>
-                                </div>
+                            <div className="flex w-full justify-end items-center pt-">
+                                <p onClick={() => setEditable(true)} className="px-3 sm:w-fit w-full py-1.5 bg-[#e4f7f4]/70 rounded-[36px] border-2 border-[#288d7c] text-[#288d7c] text-sm font-medium font-popins">
+                                    Edit
+                                </p>
                             </div>
                         </div>
-                        <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
+                        {/* <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
                             <div className="self-stretch h-[116px] flex-col justify-start items-start gap-6 flex">
                                 <div className="text-center text-[#2c2f32] text-xl font-semibold font-inter leading-7">Password</div>
                                 <div className="self-stretch h-16 pl-3 flex-col justify-start items-start gap-11 flex">
@@ -195,8 +186,8 @@ function Profile() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
+                        </div> */}
+                        {/* <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
                             <div className="self-stretch flex-col justify-start items-start gap-5 flex">
                                 <div className="self-stretch justify-between items-end inline-flex">
                                     <div className="max-w-[415px] flex-col justify-start items-start gap-[13px] inline-flex">
@@ -218,16 +209,14 @@ function Profile() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="flex max-w-[724px] w-full p-5 flex-col  border rounded-lg border-[#D0D0D0] bg-white gap-5">
                             <div className="self-stretch justify-between items-center inline-flex">
                                 <div className="text-center text-black text-xl font-semibold font-popins leading-normal">Delete Account</div>
-                                <div className="w-5 h-5 relative">
-                                    <Image src={dArrow2} alt="Downward Arrow" />
-                                </div>
+
                             </div>
                             <div className="self-stretch justify-between md:flex-row flex-col md:gap-0 gap-[34px] md:items-center flex">
-                                <div className="text-[#6d6d6d] text-sm font-normal font-roboto leading-tight">NOTE: All your data according this fundraising ...</div>
+                                <div className="text-[#6d6d6d] text-sm font-normal font-roboto leading-tight">NOTE: All your data would be deleted</div>
                                 <div className="px-2 py-1.5 cursor-pointer rounded-[36px] border-2 border-[#ff4f49] justify-center items-center gap-1 flex" onClick={() => setDeleteAccount(!deleteAccount)}>
                                     <div className="px-1 justify-start items-start gap-2.5 flex">
                                         <div className="text-center text-[#ff4f49] text-sm font-medium font-popins leading-normal">Delete Account</div>
