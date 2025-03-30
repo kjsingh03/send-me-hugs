@@ -1,21 +1,12 @@
-### Deployable Link
-
-https://aurora-hugs.vercel.app
-
-Server is deployed on render so kindly wait atleast a minute for server to get deployed
-
-### Github Link
-
-https://github.com/kjsingh03/aurora-hugs
-
-Your machine must have Typescript & Nodemon & other packages installed globally for this to run since this project is not containerised yet.
-
-Also, you may checkout the prototype video
-
-
 # Send Me Hugs - Crowdfunding Blockchain Project
 
 This is a crowdfunding blockchain project featuring fundraisers, a CMS system, MetaMask payment support, and additional functionalities.
+
+You may checkout the project at https://send-me-hugs.vercel.app & prototype video at https://devfolio.co/projects/send-me-hugs-871c
+
+Server is deployed on render so kindly wait atleast a minute for server to get deployed
+
+Your machine must have Typescript & Nodemon & other packages installed globally for this to run since this project is not containerised yet.
 
 ## Features
 
@@ -41,13 +32,13 @@ Before running the project, ensure that you have the following:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/kjsingh03/aurora-hugs.git
+git clone https://github.com/kjsingh03/send-me-hugs.git
 ```
 
 ### 2. Navigate to Project Directory
 
 ```bash
-cd aurora-hugs
+cd send-me-hugs
 ```
 
 ### 3. Client Setup
@@ -83,7 +74,7 @@ NEXT_PUBLIC_CONTRACT_ADDRESS=0x437a12a6c95916649dA8D4362Edc6E0390650603
 #### Server `.env`:
 ```plaintext
 PORT=8000
-MONGO_URL=mongodb+srv://mana:1234@cluster0.wyibj9f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGO_URL=MONGO_URL
 JWT_SECRET=sendMeHugs
 ```
 
